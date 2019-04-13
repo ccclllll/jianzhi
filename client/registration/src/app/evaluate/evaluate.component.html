@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>评价</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>兼职名称</ion-label>
+      <ion-input placeholder="兼职名称" value="前端实习生" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>评分</ion-label>
+      <ion-input placeholder="评分" [(ngModel)]="post.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">评价详情</ion-label>
+      <ion-textarea placeholder="评价详情" [(ngModel)]="post.details"></ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer (click)="clickFooter()">
+  <ion-toolbar color="primary">
+    <ion-title>评价</ion-title>
+  </ion-toolbar>
+</ion-footer>

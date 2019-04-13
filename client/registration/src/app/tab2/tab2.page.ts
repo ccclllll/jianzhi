@@ -8,9 +8,8 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  contacts: any[] = [];
 
-  user: any = {};
+  selectTab = 1;
 
   constructor(public messageService: MessageService) {
 

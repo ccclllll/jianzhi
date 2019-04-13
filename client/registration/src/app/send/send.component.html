@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>发布兼职</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item>
+          <ion-label>兼职名称</ion-label>
+          <ion-input placeholder="兼职名称" [(ngModel)]="post.name"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label >兼职时间</ion-label>
+        <ion-datetime display-format="YYYY.M.DD HH:mm" placeholder="兼职时间" [(ngModel)]="post.beginDate" name="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>兼职地点</ion-label>
+        <ion-input placeholder="兼职地点" [(ngModel)]="post.address"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>联系方式</ion-label>
+          <ion-input placeholder="联系方式" [(ngModel)]="post.contact"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label position="stacked">具体信息</ion-label>
+        <ion-textarea placeholder="具体信息" [(ngModel)]="post.details"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+  <ion-footer (click)="clickFooter()">
+    <ion-toolbar color="primary">
+      <ion-title>确定发布</ion-title>
+    </ion-toolbar>
+  </ion-footer>

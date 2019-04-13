@@ -11,7 +11,7 @@
  <div class="container">
     <div class="item">
         <div class="title">头像</div>
-        <ion-img class="img" [src]="person.img"></ion-img>
+        <ion-img class="img" src="../../assets/img/boy.png"></ion-img>
       </div>
     <div class="item">
       <div class="title">姓名</div>
@@ -29,29 +29,14 @@
       <ion-input class="input" placeholder="出生日期" [(ngModel)]="person.bornDate" *ngIf="edit"></ion-input>
     </div>
     <div class="item">
-      <div class="title">学号</div>
+      <div class="title">手机</div>
       <div class="item-content" *ngIf="!edit">{{ person.id }}</div>
-      <ion-input class="input" placeholder="学号" [(ngModel)]="person.id" *ngIf="edit"></ion-input>
+      <ion-input class="input" placeholder="手机" [(ngModel)]="person.id" *ngIf="edit"></ion-input>
     </div>
     <div class="item">
       <div class="title">学校</div>
       <div class="item-content" *ngIf="!edit">{{ person.school }}</div>
       <ion-input class="input" placeholder="学校" [(ngModel)]="person.school" *ngIf="edit"></ion-input>
-    </div>
-    <div class="item">
-      <div class="title">专业</div>
-      <div class="item-content" *ngIf="!edit">{{ person.major }}</div>
-      <ion-input class="input" placeholder="专业" [(ngModel)]="person.major" *ngIf="edit"></ion-input>
-    </div>
-    <div class="item">
-      <div class="title">爱好</div>
-      <div class="item-content" *ngIf="!edit">{{ person.hobby }}</div>
-      <ion-input class="input" placeholder="爱好" [(ngModel)]="person.hobby" *ngIf="edit"></ion-input>
-    </div>
-    <div class="item">
-      <div class="title">院系</div>
-      <div class="item-content" *ngIf="!edit">{{ person.department }}</div>
-      <ion-input class="input" placeholder="院系" [(ngModel)]="person.department" *ngIf="edit"></ion-input>
     </div>
  </div>
 </ion-content>
