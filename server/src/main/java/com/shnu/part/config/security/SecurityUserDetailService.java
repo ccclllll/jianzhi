@@ -1,5 +1,6 @@
 package com.shnu.part.config.security;
 
+
 import com.shnu.part.domain.User;
 import com.shnu.part.repositiry.UserRepository;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -33,7 +35,7 @@ public class SecurityUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info("用户:"+username+"尝试登陆");
 
-        User user = userRepository.findUserByEmail(username);
+        User user = userRepository.findByEmail(username);
 
         if(user==null){
             throw new UsernameNotFoundException("用户"+username+" not exist!");

@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { UrlConfig } from './url.config';
+import {User} from "../domain/User";
 const BASEURL = UrlConfig.BASEURL;
 
 @Injectable()
@@ -18,7 +19,7 @@ export class AuthService {
 
   getToken(userVM: any): Observable<any> {
 
-    return this.http.post(`${BASEURL}/api/login`, userVM).pipe(
+    return this.http.post(`${BASEURL}/api/authenticate`, userVM).pipe(
       tap(it => this.handleResult(it, userVM))
     );
 
@@ -48,7 +49,7 @@ export class AuthService {
     localStorage.removeItem('userVM');
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.get(`${BASEURL}/api/register?username=${username}&email=${email}&password=${password}`);
+  register(user:User): Observable<any> {
+    return this.http.post(`${BASEURL}/api/register`,user);
   }
 }

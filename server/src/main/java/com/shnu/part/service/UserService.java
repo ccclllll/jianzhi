@@ -14,13 +14,18 @@ public class UserService {
     private PasswordEncoder encoder;
 
     public User saveUser(User user){
-        if(userRepository.findUserByEmail(user.getEmail())==null){
+        if(userRepository.findByEmail(user.getEmail())==null){
             user.setPassword(encoder.encode(user.getPassword()));
             return  userRepository.save(user);
         }else{
             return null;
         }
     }
+
+    public User findUserById(Long id){
+        return userRepository.findById(id).get();
+    }
+
 
 
 }

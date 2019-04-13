@@ -10,7 +10,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 export class LoginPage {
 
   backgrounds: string[] = ['../../assets/img/bg2.jpg'];
-  loginVM = { code: '150154057', password: '123456', role: 'student' };
+  loginVM = { email: 'a@a.com', password: '123456' };
   constructor(public router: Router, private auth: AuthService, public loadingController: LoadingController,
     public alertController: AlertController) {
   }
@@ -24,7 +24,7 @@ export class LoginPage {
       duration: 2000
     });
     await loading.present();
-    this.auth.getToken({ id: this.loginVM.code, password: this.loginVM.password, role: this.loginVM.role }).subscribe(
+    this.auth.getToken(this.loginVM).subscribe(
       it => {
         localStorage.setItem('isLoggedin', 'true');
         // this.navCtrl.push('TabsPage');
@@ -66,5 +66,9 @@ export class LoginPage {
     });
 
     await alert.present();
+  }
+
+  goRegister(){
+      this.router.navigateByUrl('register');
   }
 }

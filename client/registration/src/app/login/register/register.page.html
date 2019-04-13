@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>邮箱</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>昵称</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>性别</ion-label>
+      <ion-input type="text" [(ngModel)]="user.sex"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>出生日期</ion-label>
+      <ion-input type="text" [(ngModel)]="user.bornDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>学校</ion-label>
+      <ion-input type="text" [(ngModel)]="user.school"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>密码</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div padding>
+    <ion-button ion-button color="danger" shape="round" expand="full" (click)="doRegister()">注册</ion-button>
+  </div>
+
+  <div padding text-center>
+    <ion-button ion-button color="primary" shape="round" expand="full"(click)="gotoLogin()">已有账号？登录</ion-button>
+  </div>
+</ion-content>

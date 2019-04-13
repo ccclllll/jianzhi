@@ -23,7 +23,7 @@
       <form (submit)="onLoggedin()">
         <strong>欢迎登录</strong>
         <ion-item>
-          <ion-input type="username" placeholder="学号/工号" name="code" [(ngModel)]="loginVM.code"></ion-input>
+          <ion-input type="username" placeholder="学号/工号" name="code" [(ngModel)]="loginVM.email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="password" placeholder="密码" name="password" [(ngModel)]="loginVM.password"></ion-input>
@@ -37,6 +37,7 @@
           </ion-item>
         <ion-button shape="round" expand="full" (click)="onLoggedin()">登录</ion-button>
         <ion-button shape="round" expand="full">忘记密码</ion-button>
+        <ion-button shape="round" expand="full" (click)="goRegister()">注册</ion-button>
       </form>
     </div>
   </ion-content>

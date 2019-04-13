@@ -51,6 +51,8 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 
         userDetails = userDetailsService.loadUserByUsername(name);
 
+
+        System.out.println(userDetails.toString());
         if(userDetails!=null&&encoder.matches(password,userDetails.getPassword())){
             return new UsernamePasswordAuthenticationToken(
                     name, password, new ArrayList<>());

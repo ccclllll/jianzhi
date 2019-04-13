@@ -3,6 +3,7 @@ package com.shnu.part.web.api;
 import com.shnu.part.domain.User;
 import com.shnu.part.service.UserService;
 import com.shnu.part.web.util.JwtUtil;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+
 
 @RequestMapping("/api")
 @RestController
@@ -44,6 +45,7 @@ public class UserResource {
                     .setAuthentication(authenticationManager.authenticate(authRequest));
 
         } catch (AuthenticationException e) {
+            logger.debug(e.toString());
             return new ResponseEntity<>(new JwtToken(null), HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity<>(new JwtToken(JwtUtil.buildJWTToken(loginVM.getEmail())), HttpStatus.OK);
@@ -51,6 +53,7 @@ public class UserResource {
 
 
     @PostMapping("register")
+    @ApiOperation(value = "注册")
     public ResponseEntity<User> register(@RequestBody User user){
         return new ResponseEntity<>(userService.saveUser(user),HttpStatus.OK);
     }
@@ -71,24 +74,4 @@ public class UserResource {
         }
     }
 
-   class LoginVM{
-       private  String email;
-       private String password;
-
-       public String getEmail() {
-           return email;
-       }
-
-       public void setEmail(String email) {
-           this.email = email;
-       }
-
-       public String getPassword() {
-           return password;
-       }
-
-       public void setPassword(String password) {
-           this.password = password;
-       }
-   }
 }

@@ -6,10 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
-
-@Repository
-public interface UserRepository extends JpaRepository<User,Long>{
-    User findUserByEmail(String email);
-
-
+public interface UserRepository extends CrudRepository<User,Long> {
+    User findByEmail(String email);
 }
