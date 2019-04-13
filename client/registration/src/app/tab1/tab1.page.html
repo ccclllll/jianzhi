@@ -1,101 +1,35 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
-      首页
+      所有兼职
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-
-
-
-  <div *ngIf="user.role=='student'">
-    <div class="predict" (click)="nav('registration')">
-      <img src="../../assets/img/shida.jpg">
+<ion-content color="light">
+  <div class="work-wrap">
+    <div class="detail">
+      <div class="name">前端实习生</div>
+      <div class="master">
+        <ion-img src=""></ion-img>
+        <span>DcySC</span>
+      </div>
     </div>
-
-
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>我的健康</ion-label>
-      </ion-list-header>
-      <ion-item (click)="nav('registration')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/guahao.svg"></ion-icon>
-        <ion-label>预约挂号</ion-label>
-      </ion-item>
-      <ion-item (click)="nav('order')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/guahaojilu.svg"></ion-icon>
-        <ion-label>我的预约</ion-label>
-      </ion-item>
-      <ion-item (click)="nav('history')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/history.svg"></ion-icon>
-        <ion-label>就诊记录</ion-label>
-      </ion-item>
-    </ion-list>
-
-    <ion-item-divider>
-      <ion-label>
-        预约列表
-      </ion-label>
-    </ion-item-divider>
-
-    <ion-card style="margin-left: 0;margin-right: 0;" *ngFor="let registration of registrations">
-      <ion-item>
-        <ion-label>就诊人:{{registration.patient.name}}</ion-label>
-        <ion-note slot="end">挂号成功</ion-note>
-      </ion-item>
-
-      <ion-card-content>
-        <ion-item>
-          <ion-note slot="start">就诊科室</ion-note>
-          <ion-label>{{registration.office.name}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-note slot="start">医生</ion-note>
-          <ion-label>{{registration.doctor.name}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-note slot="start">预约时间</ion-note>
-          <ion-label>{{registration.date | date: 'yyyy-MM-dd'}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-note slot="start">就诊时间</ion-note>
-          <ion-label>{{registration.workforce.date + registration.workforce.timeQuantum | myDatePipe}}</ion-label>
-        </ion-item>
-        <!--   
-        <ion-item lines="none">
-          <ion-button fill="outline" slot="end">申请假条</ion-button>
-        </ion-item> -->
-      </ion-card-content>
-    </ion-card>
+    <div class="income">
+      200 / 天
+    </div>
   </div>
 
-  <div *ngIf="user.role=='doctor'">
-    <div class="predict" (click)="nav('registration')">
-      <img src="../../assets/img/shida.jpg">
+  <div class="work-wrap">
+    <div class="detail">
+      <div class="name">前端实习生</div>
+      <div class="master">
+        <ion-img src=""></ion-img>
+        <span>DcySC</span>
+      </div>
     </div>
-
-
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>我的病人</ion-label>
-      </ion-list-header>
-      <ion-item (click)="nav('order')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/guahaojilu.svg"></ion-icon>
-        <ion-label>我的预约</ion-label>
-      </ion-item>
-      <ion-item (click)="nav('order_apply')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/guahao.svg"></ion-icon>
-        <ion-label>假条请求</ion-label>
-      </ion-item>
-      <ion-item (click)="nav('history')">
-        <ion-icon slot="start" color="medium" src="../../assets/img/history.svg"></ion-icon>
-        <ion-label>历史预约</ion-label>
-      </ion-item>
-    </ion-list>
-
+    <div class="income">
+      200 / 天
+    </div>
   </div>
-
 </ion-content>

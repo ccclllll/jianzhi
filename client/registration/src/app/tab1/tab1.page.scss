@@ -1,30 +1,62 @@
-.welcome-card ion-img {
-  max-height: 10vh;
+$main-color: rgb(85, 203, 196);
+
+.work-wrap {
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100px;
+  background-color: white;
   overflow: hidden;
-}
-.predict{
-  position: relative;
-  img{
-    display: block;
-    position: absolute;
-    width: 100%;
+
+  .detail {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
     height: 100%;
+
+    .name {
+      width: 100%;
+      height: 60%;
+      
+      font: {
+        size: 23px;
+        weight: 800;
+      }
+    }
+
+    .master {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 40%;
+
+      font: {
+        size: 13px;
+        weight: 200;
+      }
+
+      ion-img {
+        display: inline-block;
+        margin-right: 1rem;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
-  height: 18vh;
-  // &>:nth-child(2){
-  //   top: 50%;
-  //   left: 50%;
-  //   position: absolute;
-  //   transform: translate(-50%,-50%);
-  //   height: 8vh;
-  //   width: 50%;
-  //   border-radius: 5px;
-  //   border: 1px solid green;
-  // }
-  span{
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
+
+  .income {
+    float: right;
+    display: flex;
+    width: 20%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: $main-color;
+
+    font: {
+      size: 16px;
+      weight: 800;
+    }
   }
 }

@@ -10,28 +10,29 @@ import { AuthService } from '../shared/services/auth.service';
 export class Tab2Page implements OnInit {
   contacts: any[] = [];
 
-  user: any = {}
+  user: any = {};
+
   constructor(public messageService: MessageService) {
 
   }
 
-  doRefresh(e) {
-    this.messageService.getContacts(this.user.id).subscribe(it => {
-      console.log(it);
-      this.contacts = it;
-      e.target.complete();
-    });
-  }
+  // doRefresh(e) {
+  //   this.messageService.getContacts(this.user.id).subscribe(it => {
+  //     console.log(it);
+  //     this.contacts = it;
+  //     e.target.complete();
+  //   });
+  // }
 
   ionViewWillEnter() {
   }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('userVM'));
-    this.messageService.getContacts(this.user.id).subscribe(it => {
-      console.log(it);
-      this.contacts = it;
-    });
+    // this.user = JSON.parse(localStorage.getItem('userVM'));
+    // this.messageService.getContacts(this.user.id).subscribe(it => {
+    //   console.log(it);
+    //   this.contacts = it;
+    // });
   }
 
 

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
       聊天
     </ion-title>
@@ -7,21 +7,56 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <ion-searchbar placeholder="搜索联系人"></ion-searchbar>
-  <ion-list>
+  <div class="tab-header">
+    <div [ngClass]="{'select': selectTab === 1}" (click)="changeTab(1)">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>发布</ion-label>
+    </div>
+    <div [ngClass]="{'select': selectTab === 2}" (click)="changeTab(2)">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>参与</ion-label>
+    </div>
+  </div>
 
-    <ion-item *ngFor="let data of contacts"
-      [routerLink]="['/chat',data.message.from==user.id?data.message.to:data.message.from]">
-      <ion-thumbnail slot="start">
-        <img src="../../assets/img/girl.png">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{data.contact.name}}</h2>
-        <p>{{data.message.detail}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngIf="selectTab === 1">
+      <ng-container *ngFor="let i of messageList">
+        <div class="item" (click)="clickItem(i.id)">
+          <div class="img">
+            <ion-img src="{{i.user[0]?.img}}"></ion-img>
+          </div>
+          <div class="body">
+            <div class="content">
+              {{ i.details }}
+            </div>
+            <div class="sign">
+              <div class="sign-item">{{ i.address }}</div>
+              <div class="sign-item">{{ i.user[0]?.name }}</div>
+              <div class="sign-item">{{ i.user[0]?.hobby }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ion-item *ngIf="messageList.length === 0">你目前没有发布任何活动</ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="selectTab === 2">
+      <ng-container *ngFor="let i of joinList">
+        <div class="item" (click)="clickItem(i.id)">
+          <div class="img">
+            <ion-img src="{{i.user[0]?.img}}"></ion-img>
+          </div>
+          <div class="body">
+            <div class="content">
+              {{ i.details }}
+            </div>
+            <div class="sign">
+              <div class="sign-item">{{ i.user[0]?.school }}</div>
+              <div class="sign-item">{{ i.user[0]?.sex }}</div>
+              <div class="sign-item">{{ i.user[0]?.hobby }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ion-item *ngIf="joinList.length === 0">你目前没有参与任何活动</ion-item>
+  </ion-card>
 </ion-content>

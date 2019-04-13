@@ -8,16 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  user = JSON.parse(localStorage.getItem('userVM'));
+  // user = JSON.parse(localStorage.getItem('userVM'));
+  icon = 'create';
+  edit = false;
+
   constructor(public auth: AuthService, public router: Router) {
 
   }
-  logout() {
-    this.auth.clearToken();
-    this.router.navigate(['']);
-  }
 
-  ionViewWillEnter() {
-    this.user = JSON.parse(localStorage.getItem('userVM'));
+  clickIcon(e) {
+    this.edit = !this.edit;
+
+    if (this.edit) {
+      this.icon = 'save';
+    } else {
+      this.icon = 'create';
+      // this.authService.updateUser(this.person).subscribe();
+    }
   }
+  // logout() {
+  //   this.auth.clearToken();
+  //   this.router.navigate(['']);
+  // }
+
+  // ionViewWillEnter() {
+  //   this.user = JSON.parse(localStorage.getItem('userVM'));
+  // }
 }
