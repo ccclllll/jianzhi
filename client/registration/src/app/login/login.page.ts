@@ -10,7 +10,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 export class LoginPage {
 
   backgrounds: string[] = ['../../assets/img/bg2.jpg'];
-  loginVM = { email: 'a@a.com', password: '123456' };
+  loginVM = { phone: '1234567890', password: '123456' };
   constructor(public router: Router, private auth: AuthService, public loadingController: LoadingController,
     public alertController: AlertController) {
   }

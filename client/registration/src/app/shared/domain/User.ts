@@ -25,7 +25,7 @@ export class User{
     sex: string;
     school: string;
     bornDate: string;
-    email: string;
+    phone: string;
     state: number;
     img: number;
     constructor (arg?: {
@@ -35,7 +35,7 @@ export class User{
         sex: string,
         school: string,
         bornDate: string,
-        email: string,
+        phone: string,
         state: number,
         img: number
     }){
@@ -46,7 +46,7 @@ export class User{
         this.id = arg.id;
         this.bornDate = arg.bornDate;
         this.username = arg.username;
-        this.email = arg.email;
+        this.phone = arg.phone;
         this.password = arg.password;
         this.school = arg.school;
         this.img = arg.img;
