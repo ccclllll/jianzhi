@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()" id="close-modal">
+        返回
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">姓名</ion-label>
+      <ion-input [disabled]="true" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">科室</ion-label>
+      <ion-input [disabled]="true" [(ngModel)]="office.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">医生</ion-label>
+      <ion-input [disabled]="true" [(ngModel)]="doctor.name"></ion-input>
+      <!-- <ion-text color="secondary">
+          <p>{{doctor.name}}</p>
+        </ion-text> -->
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">日期</ion-note>
+      <!-- <ion-input [disabled]="true" [(ngModel)]="workforce.date"></ion-input> -->
+      <ion-label>{{workforce.date | myDatePipe}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">时间段</ion-note>
+      <!-- <ion-input [disabled]="true" [(ngModel)]="workforce.date"></ion-input> -->
+      <ion-label>{{workforce.timeQuantum === 'am' ? '上午': '下午'}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button shape="round" expand="full" (click)="addOrder()">确认预约</ion-button>
+</ion-content>
