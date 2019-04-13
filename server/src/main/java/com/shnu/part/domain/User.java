@@ -20,9 +20,7 @@ public class User {
 
     private String bornDate;
 
-
-
-    private String email;
+    private String phone;
 
     private Integer state;
 
@@ -76,12 +74,13 @@ public class User {
         this.bornDate = bornDate;
     }
 
-    public String getEmail() {
-        return email;
+
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Integer getState() {

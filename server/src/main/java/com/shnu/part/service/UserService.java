@@ -14,7 +14,7 @@ public class UserService {
     private PasswordEncoder encoder;
 
     public User saveUser(User user){
-        if(userRepository.findByEmail(user.getEmail())==null){
+        if(userRepository.findByPhone(user.getPhone())==null){
             user.setPassword(encoder.encode(user.getPassword()));
             return  userRepository.save(user);
         }else{

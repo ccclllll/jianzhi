@@ -18,6 +18,8 @@ public class Job {
     private String jobSalary;
     @ManyToOne
     private User user;
+    private String contact;
+    private String address;
 
     public Long getId() {
         return id;

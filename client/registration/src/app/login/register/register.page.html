@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>注册</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,10 +34,10 @@
 
   </ion-list>
   <div padding>
-    <ion-button ion-button color="danger" shape="round" expand="full" (click)="doRegister()">注册</ion-button>
+    <ion-button ion-button color="primary" shape="round" expand="full" (click)="doRegister()">注册</ion-button>
   </div>
 
   <div padding text-center>
-    <ion-button ion-button color="primary" shape="round" expand="full"(click)="gotoLogin()">已有账号？登录</ion-button>
+    <p (click)="gotoLogin()">已有账号？登录</p>
   </div>
 </ion-content>

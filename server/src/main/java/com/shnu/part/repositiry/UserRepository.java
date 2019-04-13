@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 public interface UserRepository extends CrudRepository<User,Long> {
-    User findByEmail(String email);
+    User findByPhone(String phone);
 }

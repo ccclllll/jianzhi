@@ -15,8 +15,8 @@ public class UserJob {
     @ManyToOne
     User user;
     private Integer state; // 0 未开始 1进行中 2已结束
-
-    private Double score;
+    @ManyToOne
+    Score score;
 
     public Long getId() {
         return id;
@@ -50,11 +50,11 @@ public class UserJob {
         this.state = state;
     }
 
-    public Double getScore() {
+    public Score getScore() {
         return score;
     }
 
-    public void setScore(Double score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 }

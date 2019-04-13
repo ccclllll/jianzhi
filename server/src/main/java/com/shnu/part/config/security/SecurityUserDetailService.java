@@ -35,7 +35,7 @@ public class SecurityUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info("用户:"+username+"尝试登陆");
 
-        User user = userRepository.findByEmail(username);
+        User user = userRepository.findByPhone(username);
 
         if(user==null){
             throw new UsernameNotFoundException("用户"+username+" not exist!");

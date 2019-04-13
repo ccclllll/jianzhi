@@ -38,7 +38,7 @@ public class UserResource {
         try {
             // 内部登录请求
             UsernamePasswordAuthenticationToken authRequest
-                    = new UsernamePasswordAuthenticationToken(loginVM.getEmail(), loginVM.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(""));
+                    = new UsernamePasswordAuthenticationToken(loginVM.getPhone(), loginVM.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(""));
             // 验证
             SecurityContextHolder
                     .getContext()
@@ -48,7 +48,7 @@ public class UserResource {
             logger.debug(e.toString());
             return new ResponseEntity<>(new JwtToken(null), HttpStatus.NOT_ACCEPTABLE);
         }
-        return new ResponseEntity<>(new JwtToken(JwtUtil.buildJWTToken(loginVM.getEmail())), HttpStatus.OK);
+        return new ResponseEntity<>(new JwtToken(JwtUtil.buildJWTToken(loginVM.getPhone())), HttpStatus.OK);
     }
 
 

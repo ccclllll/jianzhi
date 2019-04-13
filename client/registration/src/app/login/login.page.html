@@ -6,18 +6,18 @@
 <ion-header no-border>
     <ion-toolbar>
         <ion-title>
-          Login
+          登录
         </ion-title>
       </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">
-      <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds" [ngStyle]="{'background-image': 'url(' + background +')'}">
-      </ion-slide>
-    </ion-slides>
+    <!--<ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">-->
+      <!--<ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds" [ngStyle]="{'background-image': 'url(' + background +')'}">-->
+      <!--</ion-slide>-->
+    <!--</ion-slides>-->
     <div class="login-container">
     <!--  <img class="logo" src="../../assets/imgs/no-image.jpg" />-->
-      <div style="margin-top: 150px">
+      <div style="margin-top: 50px">
   
       </div>
       <form (submit)="onLoggedin()">
@@ -29,8 +29,11 @@
           <ion-input type="password" placeholder="密码" name="password" [(ngModel)]="loginVM.password"></ion-input>
         </ion-item>
         <ion-button shape="round" expand="full" (click)="onLoggedin()">登录</ion-button>
-        <ion-button shape="round" expand="full">忘记密码</ion-button>
-        <ion-button shape="round" expand="full" (click)="goRegister()">注册</ion-button>
+        <div style="color: #7e57ff">
+          <p style="color: black;">忘记密码</p>
+          <p style="color: black" (click)="goRegister()">注册</p>
+        </div>
+
       </form>
     </div>
   </ion-content>
