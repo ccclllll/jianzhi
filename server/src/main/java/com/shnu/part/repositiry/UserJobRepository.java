@@ -8,4 +8,5 @@ import java.util.List;
 public interface UserJobRepository extends CrudRepository<UserJob,Long> {
     List<UserJob> findAllByUserId(Long userId);
     List<UserJob> findAllByJobId(Long jobId);
+    List<UserJob> deleteAllByJobId(Long id);
 }

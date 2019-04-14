@@ -48,7 +48,10 @@ public class UserResource {
             logger.debug(e.toString());
             return new ResponseEntity<>(new JwtToken(null), HttpStatus.NOT_ACCEPTABLE);
         }
-        return new ResponseEntity<>(new JwtToken(JwtUtil.buildJWTToken(loginVM.getPhone())), HttpStatus.OK);
+        User user = userService.findByPhone(loginVM.getPhone());
+        JwtToken token = new JwtToken(JwtUtil.buildJWTToken(loginVM.getPhone()));
+        token.setUser(user);
+        return new ResponseEntity<>(token, HttpStatus.OK);
     }
 
 
@@ -58,8 +61,22 @@ public class UserResource {
         return new ResponseEntity<>(userService.saveUser(user),HttpStatus.OK);
     }
 
+    @GetMapping("user/{id}")
+    public ResponseEntity<User> user(@PathVariable("id") Long id){
+        return new ResponseEntity<>(userService.findUserById(id),HttpStatus.OK);
+    }
+
     public class JwtToken {
         String token;
+        User user;
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
 
         public JwtToken(String token) {
             this.token = token;

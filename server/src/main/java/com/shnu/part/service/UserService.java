@@ -13,6 +13,11 @@ public class UserService {
     @Autowired
     private PasswordEncoder encoder;
 
+    /**
+     * 根据手机号查找用户，如果手机号被注册过，则返回空值
+     * @param user
+     * @return
+     */
     public User saveUser(User user){
         if(userRepository.findByPhone(user.getPhone())==null){
             user.setPassword(encoder.encode(user.getPassword()));
@@ -24,6 +29,10 @@ public class UserService {
 
     public User findUserById(Long id){
         return userRepository.findById(id).get();
+    }
+
+    public User findByPhone(String phone){
+        return userRepository.findByPhone(phone);
     }
 
 

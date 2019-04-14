@@ -34,6 +34,7 @@ export class AuthService {
     const date = (new Date()).getTime();
     localStorage.setItem('loginTime', date + '');
     localStorage.setItem('userVM', JSON.stringify(userVM));
+    localStorage.setItem('user',JSON.stringify(it.user));
   }
 
   getUser(): Observable<any> {

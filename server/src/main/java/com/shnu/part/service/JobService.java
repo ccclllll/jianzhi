@@ -2,6 +2,7 @@ package com.shnu.part.service;
 
 import com.shnu.part.domain.Job;
 import com.shnu.part.repositiry.JobRepository;
+import com.shnu.part.repositiry.UserJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ public class JobService {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
+    private UserJobRepository userJobRepository;
     public List<Job> userPost(Long userId){
         return jobRepository.findAllByUserId(userId);
     }
@@ -21,6 +24,8 @@ public class JobService {
     }
 
     public void deleteJob(Long jobId){
+
+        userJobRepository.deleteAllByJobId(jobId); //
         jobRepository.deleteById(jobId);
     }
 
